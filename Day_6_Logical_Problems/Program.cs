@@ -18,6 +18,7 @@ namespace Day_6_Logical_Problems
             switch (Option)
             {
                 case 1:
+                    Fibonacci fibonacci = new Fibonacci();
                     break;
                 case 2:
                     break;
@@ -32,6 +33,30 @@ namespace Day_6_Logical_Problems
                 default:
                     Console.WriteLine("Invalid Entry.");
                     break;
+            }
+        }
+    }
+
+    class Fibonacci
+    {
+        public Fibonacci()
+        {
+            Console.Write("Enter First Term: ");
+            int First_Term = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Second Term: ");
+            int Second_Term = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter the Number of Terms: ");
+            int Number_of_Terms = Convert.ToInt32(Console.ReadLine());
+            int Third_Term = 0;
+
+            Console.WriteLine("The series is as follows,");
+            Console.Write("{0} {1} ", First_Term, Second_Term);
+            for (int i = 1; i <= Number_of_Terms; i++)
+            {
+                Third_Term = First_Term + Second_Term;
+                Console.Write("{0} ", Third_Term);
+                First_Term = Second_Term;
+                Second_Term = Third_Term;
             }
         }
     }
