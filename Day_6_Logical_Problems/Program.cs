@@ -27,6 +27,7 @@ namespace Day_6_Logical_Problems
                     Prime prime = new Prime();
                     break;
                 case 4:
+                    Reverse reverse = new Reverse();
                     break;
                 case 5:
                     break;
@@ -133,6 +134,26 @@ namespace Day_6_Logical_Problems
                     break;
                 }
             }
+        }
+    }
+
+    class Reverse
+    {
+        public Reverse()
+        {
+            Console.Write("Enter a Number: ");
+            int Number = Convert.ToInt32(Console.ReadLine());
+
+            int Reversed_Number = 0;
+
+            string Digits = Convert.ToString(Number);
+
+            for (int i = Digits.Length-1; i >= 0; i--)
+            {
+                Reversed_Number += (Number % 10) * (int)Math.Pow(10, i);
+                Number = Number / 10;
+            }
+            Console.WriteLine("The reverse of given number is: " + Reversed_Number);
         }
     }
 }
