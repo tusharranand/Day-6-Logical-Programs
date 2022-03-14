@@ -21,6 +21,7 @@ namespace Day_6_Logical_Problems
                     Fibonacci fibonacci = new Fibonacci();
                     break;
                 case 2:
+                    Perfect perfect = new Perfect();
                     break;
                 case 3:
                     break;
@@ -57,6 +58,45 @@ namespace Day_6_Logical_Problems
                 Console.Write("{0} ", Third_Term);
                 First_Term = Second_Term;
                 Second_Term = Third_Term;
+            }
+        }
+    }
+
+    class Perfect
+    {
+        public bool Factors(int Number, int Potential_Factor)
+        {
+            if (Number % Potential_Factor == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Perfect()
+        {
+            int Check = 0;
+            Console.Write("Enter the number you want to check: ");
+            int Number = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= Number / 2; i++)
+            {
+                if (Factors(Number, i))
+                {
+                    Check += i;
+                }
+            }
+
+            if (Check == Number)
+            {
+                Console.WriteLine(Number + " is a Perfect Number.");
+            }
+            else
+            {
+                Console.WriteLine(Number + " is not a Perfect Number.");
             }
         }
     }
