@@ -24,6 +24,7 @@ namespace Day_6_Logical_Problems
                     Perfect perfect = new Perfect();
                     break;
                 case 3:
+                    Prime prime = new Prime();
                     break;
                 case 4:
                     break;
@@ -97,6 +98,40 @@ namespace Day_6_Logical_Problems
             else
             {
                 Console.WriteLine(Number + " is not a Perfect Number.");
+            }
+        }
+    }
+
+    class Prime
+    {
+        public bool Factors(int Number, int Potential_Factor)
+        {
+            if (Number % Potential_Factor == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Prime()
+        {
+            Console.Write("Enter the number to be checked: ");
+            int Number = Convert.ToInt32(Console.ReadLine());
+            for (int i = 2; i <= Number; i++)
+            {
+                if (Factors(Number, i))
+                {
+                    Console.WriteLine(Number + " is not a Prime Number.");
+                    break;
+                }
+                else if (i == (Number / 2 + 1) || i == (Number + 1) / 2)
+                {
+                    Console.WriteLine(Number + " is a Prime Number.");
+                    break;
+                }
             }
         }
     }
