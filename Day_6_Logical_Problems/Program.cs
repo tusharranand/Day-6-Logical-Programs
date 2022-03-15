@@ -33,6 +33,7 @@ namespace Day_6_Logical_Problems
                     Coupon coupon = new Coupon();
                     break;
                 case 6:
+                    Stopwatch stopwatch = new Stopwatch();
                     break;
                 default:
                     Console.WriteLine("Invalid Entry.");
@@ -181,7 +182,7 @@ namespace Day_6_Logical_Problems
                 {
                     Coupon_Code = Generator(Digits);
                     Count++;
-                    if (Count >= N/2)
+                    if (Count >= N / 2)
                     {
                         Digits += 5;
                     }
@@ -195,6 +196,22 @@ namespace Day_6_Logical_Problems
                 Console.WriteLine(Coupon_List[i]);
             }
 
+        }
+    }
+
+    class Stopwatch
+    {
+        public Stopwatch()
+        {
+            Console.WriteLine("Press Enter to Start.");
+            Console.ReadLine();
+            DateTime Start = DateTime.Now; 
+            
+            Console.WriteLine("Press Enter to Stop.");
+            Console.ReadLine();
+            DateTime Stop = DateTime.Now;
+
+            Console.Write("Elapsed Time = " + (Stop - Start));
         }
     }
 }
