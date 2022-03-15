@@ -30,6 +30,7 @@ namespace Day_6_Logical_Problems
                     Reverse reverse = new Reverse();
                     break;
                 case 5:
+                    Coupon coupon = new Coupon();
                     break;
                 case 6:
                     break;
@@ -148,12 +149,52 @@ namespace Day_6_Logical_Problems
 
             string Digits = Convert.ToString(Number);
 
-            for (int i = Digits.Length-1; i >= 0; i--)
+            for (int i = Digits.Length - 1; i >= 0; i--)
             {
                 Reversed_Number += (Number % 10) * (int)Math.Pow(10, i);
                 Number = Number / 10;
             }
             Console.WriteLine("The reverse of given number is: " + Reversed_Number);
+        }
+    }
+
+    class Coupon
+    {
+        public string Generator(int X)
+        {
+            string Code = "";
+            Code = Convert.ToString(new Random().Next(0, X));
+            return Code;
+        }
+        public Coupon()
+        {
+            Console.Write("Enter the Number of unique coupons required: ");
+            int N = Convert.ToInt32(Console.ReadLine());
+            string[] Coupon_List = new string[N];
+            string Coupon_Code = "";
+            int Digits = 1;
+            int Count = 0;
+
+            for (int i = 0; i < N; i++)
+            {
+                while (Array.Exists(Coupon_List, element => element == Coupon_Code))
+                {
+                    Coupon_Code = Generator(Digits);
+                    Count++;
+                    if (Count >= N/2)
+                    {
+                        Digits += 5;
+                    }
+                }
+                Count = 0;
+                Coupon_List[i] = Coupon_Code;
+            }
+            Console.WriteLine("The required Coupon Numbers are,");
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine(Coupon_List[i]);
+            }
+
         }
     }
 }
